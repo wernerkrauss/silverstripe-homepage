@@ -1,0 +1,19 @@
+en:
+  HomePage:
+    __Block: Blocks
+    __BlockTabName: Blocks
+    __DESCRIPTION: 'Generic content page'
+    __PLURALNAME: 'Home Pages'
+    __SINGULARNAME: 'Home Page'
+    __has_many_HomePageBlocks: 'Home Page Blocks'
+  HomePageBlock:
+    __PLURALNAME: 'Home page blocks'
+    __SINGULARNAME: 'Home page block'
+    __db_Content: Content
+    __db_ExternalLinkURL: 'External Link URL'
+    __db_IsActive: 'Is Active'
+    __db_LinkText: 'Link Text'
+    __db_SortOrder: 'Sort Order'
+    __db_Title: Title
+    __has_one_HomePage: 'Home Page'
+    __has_one_LinkToPage: 'Link To Page'

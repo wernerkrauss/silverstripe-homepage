@@ -1,0 +1,30 @@
+{
+  "name": "wernerkrauss/silverstripe-homepage",
+  "description": "Very simple homepage page type with blocks",
+  "type": "silverstripe-module",
+  "keywords": [
+    "silverstripe",
+    "extension"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Werner Krauß",
+      "email": "werner.krauss@netwerkstatt.at",
+      "homepage": "http://www.netwerkstatt.at",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/wernerkrauss/silverstripe-homepage/issues"
+  },
+  "require": {
+    "silverstripe/framework": "^3.2.0",
+    "silverstripe/cms": "^3.2.0"
+  },
+  "suggest": {
+  },
+  "extra": {
+    "installer-name": "homepage"
+  }
+}

@@ -1,0 +1,19 @@
+de:
+  HomePage:
+    Block: Blöcke
+    BlockTabName: Blöcke
+    DESCRIPTION: 'Homepage mit Blöcken'
+    PLURALNAME: 'Homepages'
+    SINGULARNAME: 'Homepage'
+    __has_many_HomePageBlocks: 'Home Page Blocks'
+  HomePageBlock:
+    PLURALNAME: 'Homepage Blöcke'
+    SINGULARNAME: 'Homepage Block'
+    db_Content: Inhalt
+    db_ExternalLinkURL: 'Externer Link'
+    db_IsActive: Aktiv
+    db_LinkText: 'Linktext'
+    __db_SortOrder: 'Sort Order'
+    db_Title: Titel
+    has_one_HomePage: 'Homepage'
+    has_one_LinkToPage: 'Link zu Seite'
