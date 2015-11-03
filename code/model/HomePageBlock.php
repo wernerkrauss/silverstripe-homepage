@@ -73,7 +73,7 @@ class HomePageBlock extends DataObject {
 	}
 
 	public function getLink() {
-		$link = $this->LinkToPageID
+		$link = $this->LinkToPageID && $this->LinkToPage()
 			? $this->LinkToPage()->Link()
 			: $this->ExternalLinkURL;
 
