@@ -20,65 +20,67 @@
  * @method Page LinkToPage
  * EndGeneratedWithDataObjectAnnotator
  */
-class HomePageBlock extends DataObject {
+class HomePageBlock extends DataObject
+{
 
-	private static $db = [
-		'Title' => 'Varchar(64)',
-		'Content' => 'HTMLText',
-		'LinkText' => 'Varchar(64)',
-		'ExternalLinkURL' => 'Varchar(255)',
-		'IsActive' => 'Boolean',
-		'SortOrder' => 'Int'
-	];
+    private static $db = [
+        'Title' => 'Varchar(64)',
+        'Content' => 'HTMLText',
+        'LinkText' => 'Varchar(64)',
+        'ExternalLinkURL' => 'Varchar(255)',
+        'IsActive' => 'Boolean',
+        'SortOrder' => 'Int'
+    ];
 
     private static $has_one = [
-		'HomePage' => 'HomePage',
-		'LinkToPage' => 'Page'
-	];
+        'HomePage' => 'HomePage',
+        'LinkToPage' => 'Page'
+    ];
 
     private static $singular_name = 'Home page block';
 
     private static $plural_name = 'Home page blocks';
 
     private static $summary_fields = [
-		'Title', 'IsActive'
-	];
+        'Title', 'IsActive'
+    ];
 
-	private static $default_sort = 'SortOrder';
+    private static $default_sort = 'SortOrder';
 
-	/**
-	 * for configuring fluent
-	 * @var array
-	 */
-	private static $translate = [
-		'Title',
-		'Content',
-		'LinkText',
-		'ExternalLinkURL'
-	];
+    /**
+     * for configuring fluent
+     * @var array
+     */
+    private static $translate = [
+        'Title',
+        'Content',
+        'LinkText',
+        'ExternalLinkURL'
+    ];
 
-    public function getCMSFields() {
-		$fields = parent::getCMSFields();
+    public function getCMSFields()
+    {
+        $fields = parent::getCMSFields();
 
-		$linkTo = $fields->dataFieldByName('LinkToPageID')->setEmptyString('-- bitte auswählen --');
+        $linkTo = $fields->dataFieldByName('LinkToPageID')->setEmptyString('-- bitte auswählen --');
 
-		$fields->removeByName(['SortOrder', 'HomePageID', 'LinkToPageID']);
+        $fields->removeByName(['SortOrder', 'HomePageID', 'LinkToPageID']);
 
-		$fields->insertAfter('LinkText', $linkTo);
+        $fields->insertAfter('LinkText', $linkTo);
 
-		$this->extend('updateCMSFields', $fields);
+        $this->extend('updateCMSFields', $fields);
 
-		return $fields;
+        return $fields;
+    }
 
-	}
+    public function getLink()
+    {
+        $link = $this->LinkToPageID && $this->LinkToPage()
+            ? $this->LinkToPage()->Link()
+            : $this->ExternalLinkURL;
 
-	public function getLink() {
-		$link = $this->LinkToPageID && $this->LinkToPage()
-			? $this->LinkToPage()->Link()
-			: $this->ExternalLinkURL;
+        $this->extend('updateLink', $link);
 
-		$this->extend('updateLink', $link);
-
-		return $link;
-	}
+        return $link;
+    }
 }
